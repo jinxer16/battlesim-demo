@@ -2,14 +2,16 @@ let Charmander = {
     name: "CHARMANDER",
     health: 39,
     maxHealth: 39,
-    level: 5
+    level: 5,
+    
     }
 
 let Squirtle = {
     name: "SQUIRTLE",
-    health: 42,
-    maxHealth: 42,
-    level: 5
+    health: 7,
+    maxHealth: 7,
+    level: 5,
+    
 }    
 
 
@@ -23,12 +25,17 @@ const attack = () => {
         setTimeout(()=>{
         Squirtle.health = Squirtle.health -4
         printOnScreen();}, 1500)
-
+        
+        if(Squirtle.health -4 > 0) //So that 4 is fixed value now, but i dont really know how to code it
+        {
         setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
         setTimeout(()=>{
             Charmander.health = Charmander.health -3
             printOnScreen();}, 4500)
-        setTimeout(()=> showMenu(), 6000)
+        setTimeout(()=> showMenu(), 6000)}
+        else{
+            setTimeout(()=> gameMessage("ENEMY FAINTED, YOU WON!"), 3000)
+        }
             
         
     
@@ -42,6 +49,8 @@ const printOnScreen = () => {
     document.getElementById("player-hp-current").innerText = Charmander.health;
     document.getElementById("player-hp-max").innerText = Charmander.maxHealth;
     document.getElementById("player-level").innerText = Charmander.level;
+   // document.getElementById("player-sprite").setAttribute = Charmander.sprite;//
+    
 
     document.getElementById("enemy-name").innerText = Squirtle.name;
     document.getElementById("enemy-hp-current").innerText = Squirtle.health;
