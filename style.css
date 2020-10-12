@@ -113,6 +113,13 @@ body {
 }
 #game-menu li {
     margin: 10px 20px;
+    position: relative;
+}
+#game-menu div li:hover:before {
+    content: url('images/right-arrow-black-triangle.png');
+    position: absolute;
+    left: -20px;
+    top: -4px;
 }
 #fightbutton{ cursor: pointer; }
 
