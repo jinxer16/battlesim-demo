@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'pkmn';
+    src: url('pkmn_rbygsc/PKMN\ RBYGSC.ttf');
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+p {
+    margin: 0;
+}
+
+body {
+    font-family: pkmn;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.character-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+.character-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px 40px;
+}
+#enemy-name, #player-name {
+    font-size: 25px;
+}
+#enemy-level, #player-level {
+    margin-left: 40%;
+    font-size: 15px;
+}
+#enemy-level:before, #player-level:before {
+    content: ":";
+}
+.hp-div {
+    width: 160px;
+    margin: 0 auto;
+}
+#player-hp:before, #enemy-hp:before {
+    content: "HP: ";
+    position: relative;
+    right: 3px;
+    font-size: 15px;
+}
+#player-hp, #enemy-hp {
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.game-area {
+    min-width: 600px;
+    height: 600px;
+    border: 1px solid #CCC;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#enemy-player-div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#enemy-sprite img, #player-sprite img{
+    width: 200px;
+}
+
+#bottom-area {
+    border: 5px double black;
+}
+#game-menu {
+    list-style-type: none;
+    font-size: 30px;
+    width: 350px;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    border-left: 5px double black;
+    margin-left: auto;
+    height: 160px;
+    justify-content: space-around;
+    padding-left: 30px;
+}
+#game-menu div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+#game-menu li {
+    margin: 10px 20px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+/* Media queries */
+@media (min-width: 800px) {
+    
+}
