@@ -41,12 +41,12 @@ const printOnScreen = () => {
     document.getElementById("player-name").innerText = Charmander.name;
     document.getElementById("player-hp-current").innerText = Charmander.health;
     document.getElementById("player-hp-max").innerText = Charmander.maxHealth;
-    document.getElementById("player-level").innerText = "L" + Charmander.level;
+    document.getElementById("player-level").innerText = Charmander.level;
 
     document.getElementById("enemy-name").innerText = Squirtle.name;
     document.getElementById("enemy-hp-current").innerText = Squirtle.health;
     document.getElementById("enemy-hp-max").innerText = Squirtle.maxHealth;
-    document.getElementById("enemy-level").innerText = "L" + Squirtle.level;
+    document.getElementById("enemy-level").innerText = Squirtle.level;
 
 }
 

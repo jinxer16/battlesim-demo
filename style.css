@@ -50,7 +50,7 @@ body {
     font-size: 15px;
 }
 #enemy-level:before, #player-level:before {
-    content: ":";
+    content: ":L";
 }
 .hp-div {
     width: 160px;
