@@ -15,10 +15,24 @@ let Squirtle = {
 
 
 const attack = () => {
-    if(Squirtle.health>0){
-        Squirtle.health = Squirtle.health -4;
-    }
-    printOnScreen();
+    
+    
+   
+        gameMessage("CHARMANDER used SCRATCH!");
+        
+        setTimeout(()=>{
+        Squirtle.health = Squirtle.health -4
+        printOnScreen();}, 1500)
+
+        setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
+        setTimeout(()=>{
+            Charmander.health = Charmander.health -3
+            printOnScreen();}, 4500)
+        setTimeout(()=> showMenu(), 6000)
+            
+        
+    
+    
 }
 
 
@@ -39,8 +53,14 @@ const printOnScreen = () => {
 function gameMessage(message) {
     document.getElementById("game-menu").style = "display: none;";
     document.getElementById("message").style = "display: block;";
-    document.getElementById("message").innerHTML = message;
+    document.getElementById("message").innerHTML = message;   
 }
+
+const showMenu = () =>{
+    document.getElementById("game-menu").style = "display: flex;";
+    document.getElementById("message").style = "display: none;";
+}
+
     
 printOnScreen();
-// gameMessage("CHARMANDER used SCRATCH!");
+//gameMessage("CHARMANDER used SCRATCH!");
