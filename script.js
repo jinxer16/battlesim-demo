@@ -12,6 +12,22 @@ let Squirtle = {
     maxHealth: 7,
     level: 5,
     
+    changeHealth: function(amount) {
+        if (this.health + amount > 0) {
+            this.health += amount;
+            printOnScreen()
+            setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
+            setTimeout(()=>{
+            Charmander.health = Charmander.health -3
+            printOnScreen();}, 3500)
+            setTimeout(()=> showMenu(), 6000)
+        } else {
+            this.health = 0;
+            setTimeout(()=> gameMessage("ENEMY FAINTED, YOU WON!"), 3000)
+        }
+        
+
+    }
 }    
 
 
@@ -23,9 +39,10 @@ const attack = () => {
         gameMessage("CHARMANDER used SCRATCH!");
         
         setTimeout(()=>{
-        Squirtle.health = Squirtle.health -4
+        // Squirtle.health = Squirtle.health -4
+        Squirtle.changeHealth(-4);
         printOnScreen();}, 1500)
-        
+        /*
         if(Squirtle.health -4 > 0) //So that 4 is fixed value now, but i dont really know how to code it
         {
         setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
@@ -35,7 +52,7 @@ const attack = () => {
         setTimeout(()=> showMenu(), 6000)}
         else{
             setTimeout(()=> gameMessage("ENEMY FAINTED, YOU WON!"), 3000)
-        }
+        }*/
             
         
     
