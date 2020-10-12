@@ -10,6 +10,10 @@ body, html {
 p {
     margin: 0;
 }
+* {
+    -webkit-user-drag: none;
+    user-select: none;
+}
 
 body {
     font-family: pkmn;
