@@ -15,7 +15,9 @@ let Squirtle = {
 
 
 const attack = () => {
-    Squirtle.health = Squirtle.health  - 4;
+    if(Squirtle.health>0){
+        Squirtle.health = Squirtle.health -4;
+    }
     printOnScreen();
 }
 
