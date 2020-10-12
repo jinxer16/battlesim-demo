@@ -19,11 +19,14 @@ let Squirtle = {
             setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
             setTimeout(()=>{
             Charmander.health = Charmander.health -3
-            printOnScreen();}, 3500)
+            printOnScreen();}, 4500)
             setTimeout(()=> showMenu(), 6000)
         } else {
             this.health = 0;
-            setTimeout(()=> gameMessage("ENEMY FAINTED, YOU WON!"), 3000)
+            setTimeout(function() {
+                gameMessage("ENEMY FAINTED, YOU WON!")
+                document.getElementById("enemy-sprite").classList="faint";
+            }, 3000)
         }
         
 

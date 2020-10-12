@@ -35,6 +35,9 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 10px;
+    
+    position: relative;
+    background-color: white;
 }
 .character-info {
     display: flex;
@@ -122,6 +125,19 @@ body {
     top: -4px;
 }
 #fightbutton{ cursor: pointer; }
+
+.faint {
+    position: relative;
+    animation: faint .5s linear forwards;
+}
+@keyframes faint {
+    0% {
+        transform: translate(0,0);
+    }
+    100% {
+        transform: translate(0,220px);
+    }
+}
 
 .clearfix::after {
     content: "";
