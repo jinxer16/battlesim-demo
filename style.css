@@ -11,6 +11,7 @@ p {
     margin: 0;
 }
 * {
+    box-sizing: border-box;
     -webkit-user-drag: none;
     user-select: none;
 }
@@ -22,6 +23,12 @@ body {
     align-items: center;
     justify-content: center;
 
+}
+#message {
+    font-size: 25px;
+    padding: 20px 30px;
+    display: none;
+    line-height: 1.8;
 }
 .character-area {
     display: flex;
@@ -63,6 +70,7 @@ body {
 
 .game-area {
     min-width: 600px;
+    max-width: 600px;
     height: 600px;
     border: 1px solid #CCC;
 
@@ -82,11 +90,12 @@ body {
 
 #bottom-area {
     border: 5px double black;
+    height: 233px;
 }
 #game-menu {
     list-style-type: none;
     font-size: 30px;
-    width: 350px;
+    width: 385px;
     display: flex;
     flex: 1;
     flex-wrap: wrap;
@@ -111,7 +120,7 @@ body {
     content: "";
     clear: both;
     display: table;
-  }
+}
 /* Media queries */
 @media (min-width: 800px) {
     
