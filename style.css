@@ -10,6 +10,11 @@ body, html {
 p {
     margin: 0;
 }
+* {
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    user-select: none;
+}
 
 body {
     font-family: pkmn;
@@ -18,6 +23,12 @@ body {
     align-items: center;
     justify-content: center;
 
+}
+#message {
+    font-size: 25px;
+    padding: 20px 30px;
+    display: none;
+    line-height: 1.8;
 }
 .character-area {
     display: flex;
@@ -39,7 +50,7 @@ body {
     font-size: 15px;
 }
 #enemy-level:before, #player-level:before {
-    content: ":";
+    content: ":L";
 }
 .hp-div {
     width: 160px;
@@ -59,6 +70,7 @@ body {
 
 .game-area {
     min-width: 600px;
+    max-width: 600px;
     height: 600px;
     border: 1px solid #CCC;
 
@@ -78,11 +90,12 @@ body {
 
 #bottom-area {
     border: 5px double black;
+    height: 233px;
 }
 #game-menu {
     list-style-type: none;
     font-size: 30px;
-    width: 350px;
+    width: 385px;
     display: flex;
     flex: 1;
     flex-wrap: wrap;
@@ -100,13 +113,21 @@ body {
 }
 #game-menu li {
     margin: 10px 20px;
+    position: relative;
 }
+#game-menu div li:hover:before {
+    content: url('images/right-arrow-black-triangle.png');
+    position: absolute;
+    left: -20px;
+    top: -4px;
+}
+#fightbutton{ cursor: pointer; }
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }
+}
 /* Media queries */
 @media (min-width: 800px) {
     
