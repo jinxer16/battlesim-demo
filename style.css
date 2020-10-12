@@ -101,6 +101,7 @@ body {
 #game-menu li {
     margin: 10px 20px;
 }
+#fightbutton{ cursor: pointer; }
 
 .clearfix::after {
     content: "";
