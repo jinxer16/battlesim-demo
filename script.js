@@ -11,6 +11,18 @@ let Squirtle = {
     health: 7,
     maxHealth: 7,
     level: 5,
+
+    changeHealth: function(amount) {
+        if (this.health - amount > 0) {
+            this.health -= amount;
+        } else {
+            this.health = 0;
+            setTimeout(function() {
+                gameMessage("ENEMY FAINTED, YOU WON!")
+                document.getElementById("enemy-sprite").classList="faint";
+            }, 3000)
+        }
+    } 
 }
 
 let TailWhip = {
@@ -25,7 +37,7 @@ let Scratch = {
     
 const playerAttack = (attack) =>{
     
-    Squirtle.health = Squirtle.health - attack.power;
+    Squirtle.changeHealth(attack.power);
     
     gameMessage("CHARMANDER USED" + " " + attack.name + "!") ;
 
@@ -49,34 +61,17 @@ const enemyAttack = (attack) =>{
 const attackTour = () =>{
 
     playerAttack(Scratch);
-    setTimeout(()=> enemyAttack(TailWhip), 3000)
+    if (Squirtle.health > 0) {
+            setTimeout(()=> enemyAttack(TailWhip), 3000);
+    }
 }
 
 
 
-    /*changeHealth: function(amount) {
-        if (this.health + amount > 0) {
-            this.health += amount;
-            printOnScreen()
-            setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
-            setTimeout(()=>{
-            Charmander.health = Charmander.health -3
-            printOnScreen();}, 4500)
-            setTimeout(()=> showMenu(), 6000)
-        } else {
-            this.health = 0;
-            setTimeout(function() {
-                gameMessage("ENEMY FAINTED, YOU WON!")
-                document.getElementById("enemy-sprite").classList="faint";
-            }, 3000)
-        }
-        
-
-    }
-}    
+     
 
 
-
+/*
 //const attack = () => {
     
     
