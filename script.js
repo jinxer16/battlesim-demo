@@ -11,8 +11,30 @@ let Squirtle = {
     health: 7,
     maxHealth: 7,
     level: 5,
+}
+
+let TailWhip = {
+    name = "TAIL WHIP",
+    power = 4,
+}
     
-    changeHealth: function(amount) {
+/*const playerAttack = (attack) =>{
+    
+    Squirtle.health = Squirtle.health - attack.power;
+    
+    gameMessage("SQUIRTLE USED") + attack.name;
+
+    setTimeout(() => printOnScreen(), 1500);
+
+    setTimeout(() => showMenu(), 3000);
+
+
+}
+
+
+
+
+    /*changeHealth: function(amount) {
         if (this.health + amount > 0) {
             this.health += amount;
             printOnScreen()
@@ -35,16 +57,16 @@ let Squirtle = {
 
 
 
-const attack = () => {
+//const attack = () => {
     
     
    
-        gameMessage("CHARMANDER used SCRATCH!");
+       // gameMessage("CHARMANDER used SCRATCH!");
         
-        setTimeout(()=>{
+       // setTimeout(()=>{
         // Squirtle.health = Squirtle.health -4
-        Squirtle.changeHealth(-4);
-        printOnScreen();}, 1500)
+       // Squirtle.changeHealth(-4);
+       // printOnScreen();}, 1500)
         /*
         if(Squirtle.health -4 > 0) //So that 4 is fixed value now, but i dont really know how to code it
         {
@@ -60,7 +82,7 @@ const attack = () => {
         
     
     
-}
+
 
 
 const printOnScreen = () => {
