@@ -14,23 +14,43 @@ let Squirtle = {
 }
 
 let TailWhip = {
-    name = "TAIL WHIP",
-    power = 4,
+    name : "TAIL WHIP",
+    power : 3,
+}
+
+let Scratch = {
+    name: "SCRATCH",
+    power: 4
 }
     
-/*const playerAttack = (attack) =>{
+const playerAttack = (attack) =>{
     
     Squirtle.health = Squirtle.health - attack.power;
     
-    gameMessage("SQUIRTLE USED") + attack.name;
+    gameMessage("CHARMANDER USED" + " " + attack.name + "!") ;
+
+    setTimeout(() => printOnScreen(), 1500);
+
+    
+}
+
+const enemyAttack = (attack) =>{
+    
+    Charmander.health = Charmander.health - attack.power;
+    
+    gameMessage("SQUIRTLE USED" + " " + attack.name + "!") ;
 
     setTimeout(() => printOnScreen(), 1500);
 
     setTimeout(() => showMenu(), 3000);
-
-
 }
 
+
+const attackTour = () =>{
+
+    playerAttack(Scratch);
+    setTimeout(()=> enemyAttack(TailWhip), 3000)
+}
 
 
 
@@ -114,4 +134,3 @@ const showMenu = () =>{
 
     
 printOnScreen();
-//gameMessage("CHARMANDER used SCRATCH!");
