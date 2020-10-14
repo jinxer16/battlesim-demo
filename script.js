@@ -15,20 +15,20 @@ class Pokemon {
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
-                    }, 3005)
+                    }, 3001)
                 } else {
                     setTimeout(function() {
                         gameMessage("ENEMY FAINTED, YOU WON!");
                         document.getElementById("enemy-sprite").classList="faint";
-                    }, 3000)
+                    }, 3005)
                 }
         }
  }}
 
-let Charmander = new Pokemon("CHARMANDER", 5 , 5);
+let Charmander = new Pokemon("CHARMANDER", 10 , 5);
 
 
-let Squirtle = new Pokemon("SQUIRTLE", 10 , 5);
+let Squirtle = new Pokemon("SQUIRTLE", 20 , 5);
 
 let TailWhip = {
     name : "TAIL WHIP",
@@ -100,6 +100,11 @@ function gameMessage(message) {
 const showMenu = () =>{
     document.getElementById("game-menu").style = "display: flex;";
     document.getElementById("message").style = "display: none;";
+}
+
+const runningAway = () => {
+    gameMessage("YOU CAN'T RUN AWAY RIGHT NOW!");
+    setTimeout(() => showMenu() , 3000)
 }
 
     
