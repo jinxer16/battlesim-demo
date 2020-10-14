@@ -1,29 +1,24 @@
-let Charmander = {
-    name: "CHARMANDER",
-    health: 39,
-    maxHealth: 39,
-    level: 5,
+class Pokemon {
+    constructor(name, health, level){
+        this.name = name;
+        this.health = health;
+        this.maxHealth = health;
+        this.level = level;}
     
-    }
-
-let Squirtle = {
-    name: "SQUIRTLE",
-    health: 7,
-    maxHealth: 7,
-    level: 5,
-
-    changeHealth: function(amount) {
-        if (this.health - amount > 0) {
-            this.health -= amount;
-        } else {
-            this.health = 0;
-            setTimeout(function() {
-                gameMessage("ENEMY FAINTED, YOU WON!")
-                document.getElementById("enemy-sprite").classList="faint";
-            }, 3000)
+        changeHealth(amount){
+            if (this.health - amount > 0) {
+                this.health -= amount;
+            } else {
+                this.health = 0;
+                setTimeout(function() {
+                    gameMessage("ENEMY FAINTED, YOU WON!")
+                    document.getElementById("enemy-sprite").classList="faint";
+                }, 3000)
         }
-    } 
-}
+ }}
+
+let Charmander = new Pokemon("CHARMANDER", 5 , 5);
+let Squirtle = new Pokemon("SQUIRTLE", 10 , 5);
 
 let TailWhip = {
     name : "TAIL WHIP",
@@ -34,12 +29,15 @@ let Scratch = {
     name: "SCRATCH",
     power: 4
 }
-    
+
+let player = Charmander;
+let enemy = Squirtle;
+
 const playerAttack = (attack) =>{
     
     Squirtle.changeHealth(attack.power);
     
-    gameMessage("CHARMANDER USED" + " " + attack.name + "!") ;
+    gameMessage(player.name +  " USED" + " " + attack.name + "!") ;
 
     setTimeout(() => printOnScreen(), 1500);
 
@@ -48,7 +46,7 @@ const playerAttack = (attack) =>{
 
 const enemyAttack = (attack) =>{
     
-    Charmander.health = Charmander.health - attack.power;
+    Charmander.changeHealth(attack.power);
     
     gameMessage("SQUIRTLE USED" + " " + attack.name + "!") ;
 
@@ -65,39 +63,6 @@ const attackTour = () =>{
             setTimeout(()=> enemyAttack(TailWhip), 3000);
     }
 }
-
-
-
-     
-
-
-/*
-//const attack = () => {
-    
-    
-   
-       // gameMessage("CHARMANDER used SCRATCH!");
-        
-       // setTimeout(()=>{
-        // Squirtle.health = Squirtle.health -4
-       // Squirtle.changeHealth(-4);
-       // printOnScreen();}, 1500)
-        /*
-        if(Squirtle.health -4 > 0) //So that 4 is fixed value now, but i dont really know how to code it
-        {
-        setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
-        setTimeout(()=>{
-            Charmander.health = Charmander.health -3
-            printOnScreen();}, 4500)
-        setTimeout(()=> showMenu(), 6000)}
-        else{
-            setTimeout(()=> gameMessage("ENEMY FAINTED, YOU WON!"), 3000)
-        }*/
-            
-        
-    
-    
-
 
 
 const printOnScreen = () => {
