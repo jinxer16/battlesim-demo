@@ -94,6 +94,9 @@ body {
 #bottom-area {
     border: 5px double black;
     height: 233px;
+    position:relative;
+    z-index:10;
+    background-color: white;
 }
 #game-menu {
     list-style-type: none;
@@ -136,6 +139,18 @@ body {
     }
     100% {
         transform: translate(0,220px);
+    }
+}
+.playerfaint {
+    position: relative;
+    animation: playerfaint .5s linear forwards;
+}
+@keyframes playerfaint {
+    0% {
+        transform: translate(0,0);
+    }
+    100% {
+        transform: translate(0,130px);
     }
 }
 

@@ -10,14 +10,24 @@ class Pokemon {
                 this.health -= amount;
             } else {
                 this.health = 0;
-                setTimeout(function() {
-                    gameMessage("ENEMY FAINTED, YOU WON!")
-                    document.getElementById("enemy-sprite").classList="faint";
-                }, 3000)
+                if (player === this) {
+                    console.log("hi");
+                    setTimeout(function() {
+                        document.getElementById("player-sprite").classList="playerfaint";
+                        gameMessage("YOU WHITED OUT!");
+                    }, 3005)
+                } else {
+                    setTimeout(function() {
+                        gameMessage("ENEMY FAINTED, YOU WON!");
+                        document.getElementById("enemy-sprite").classList="faint";
+                    }, 3000)
+                }
         }
  }}
 
 let Charmander = new Pokemon("CHARMANDER", 5 , 5);
+
+
 let Squirtle = new Pokemon("SQUIRTLE", 10 , 5);
 
 let TailWhip = {
