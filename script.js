@@ -96,7 +96,7 @@ function gameMessage(message) {
     let arr = [];
     document.getElementById("game-menu").style = "display: none;";
     document.getElementById("message").style = "display: block;";
-
+    document.getElementById("message").innerHTML = "";
     let temp = "";
     function letterByLetter(array) {
         if (arr.length != message.length) {
