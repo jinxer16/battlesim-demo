@@ -15,7 +15,7 @@ class Pokemon {
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
-                    }, 3005)
+                    }, 3001)
                 } else {
                     setTimeout(function() {
                         gameMessage("ENEMY FAINTED, YOU WON!");
@@ -92,9 +92,24 @@ const printOnScreen = () => {
 }
 
 function gameMessage(message) {
+    let messageArray = message.split("");
+    let arr = [];
     document.getElementById("game-menu").style = "display: none;";
     document.getElementById("message").style = "display: block;";
-    document.getElementById("message").innerHTML = message;   
+
+    let temp = "";
+    function letterByLetter(array) {
+        if (arr.length != message.length) {
+            temp = array.shift();
+            arr.push(temp);
+            window.setTimeout(function() {
+                document.getElementById("message").innerHTML = arr.join("");
+                letterByLetter(messageArray);
+            }, 40)
+        }
+    }
+    letterByLetter(messageArray);
+     
 }
 
 const showMenu = () =>{
