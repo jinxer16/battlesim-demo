@@ -1,38 +1,77 @@
-let Charmander = {
-    name: "CHARMANDER",
-    health: 39,
-    maxHealth: 39,
-    level: 5
+class Pokemon {
+    constructor(name, health, level){
+        this.name = name;
+        this.health = health;
+        this.maxHealth = health;
+        this.level = level;}
+    
+        changeHealth(amount){
+            if (this.health - amount > 0) {
+                this.health -= amount;
+            } else {
+                this.health = 0;
+                if (player === this) {
+                    console.log("hi");
+                    setTimeout(function() {
+                        document.getElementById("player-sprite").classList="playerfaint";
+                        gameMessage("YOU WHITED OUT!");
+                    }, 3005)
+                } else {
+                    setTimeout(function() {
+                        gameMessage("ENEMY FAINTED, YOU WON!");
+                        document.getElementById("enemy-sprite").classList="faint";
+                    }, 3000)
+                }
+        }
+ }}
+
+let Charmander = new Pokemon("CHARMANDER", 5 , 5);
+
+
+let Squirtle = new Pokemon("SQUIRTLE", 10 , 5);
+
+let TailWhip = {
+    name : "TAIL WHIP",
+    power : 3,
+}
+
+let Scratch = {
+    name: "SCRATCH",
+    power: 4
+}
+
+let player = Charmander;
+let enemy = Squirtle;
+
+const playerAttack = (attack) =>{
+    
+    Squirtle.changeHealth(attack.power);
+    
+    gameMessage(player.name +  " USED" + " " + attack.name + "!") ;
+
+    setTimeout(() => printOnScreen(), 1500);
+
+    
+}
+
+const enemyAttack = (attack) =>{
+    
+    Charmander.changeHealth(attack.power);
+    
+    gameMessage("SQUIRTLE USED" + " " + attack.name + "!") ;
+
+    setTimeout(() => printOnScreen(), 1500);
+
+    setTimeout(() => showMenu(), 3000);
+}
+
+
+const attackTour = () =>{
+
+    playerAttack(Scratch);
+    if (Squirtle.health > 0) {
+            setTimeout(()=> enemyAttack(TailWhip), 3000);
     }
-
-let Squirtle = {
-    name: "SQUIRTLE",
-    health: 42,
-    maxHealth: 42,
-    level: 5
-}    
-
-
-
-const attack = () => {
-    
-    
-   
-        gameMessage("CHARMANDER used SCRATCH!");
-        
-        setTimeout(()=>{
-        Squirtle.health = Squirtle.health -4
-        printOnScreen();}, 1500)
-
-        setTimeout(()=> gameMessage("SQUIRTLE used TAIL WHIP!"), 3000)
-        setTimeout(()=>{
-            Charmander.health = Charmander.health -3
-            printOnScreen();}, 4500)
-        setTimeout(()=> showMenu(), 6000)
-            
-        
-    
-    
 }
 
 
@@ -42,6 +81,8 @@ const printOnScreen = () => {
     document.getElementById("player-hp-current").innerText = Charmander.health;
     document.getElementById("player-hp-max").innerText = Charmander.maxHealth;
     document.getElementById("player-level").innerText = Charmander.level;
+   // document.getElementById("player-sprite").setAttribute = Charmander.sprite;//
+    
 
     document.getElementById("enemy-name").innerText = Squirtle.name;
     document.getElementById("enemy-hp-current").innerText = Squirtle.health;
@@ -63,4 +104,3 @@ const showMenu = () =>{
 
     
 printOnScreen();
-//gameMessage("CHARMANDER used SCRATCH!");
