@@ -1,3 +1,6 @@
+
+
+
 class Pokemon {
     constructor(name, health, level, sprite){
         this.name = name;
@@ -41,6 +44,8 @@ class Pokemon {
         }
  }}
 
+
+
  class Attack{
     constructor(name, power, sound){
     this.name = name;
@@ -50,15 +55,23 @@ class Pokemon {
     }
 }
 
+
+
 let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
 
 let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
 
 let Charmander = new Pokemon("CHARMANDER", 10 , 5);
 
-let Squirtle = new Pokemon("SQUIRTLE", 20 , 5);
+let Squirtle = new Pokemon("SQUIRTLE", 5 , 5);
 
-let player = Charmander;
+
+let player = {
+
+    activePokemon : Charmander,
+    items: []
+
+}
 
 let enemy = Squirtle;
 
@@ -66,7 +79,7 @@ const playerAttack = (Attack) =>{
     
     Squirtle.changeHealth(Attack.power);
     
-    gameMessage(player.name +  " USED" + " " + Attack.name + "!") ;
+    gameMessage(player.activePokemon.name +  " USED" + " " + Attack.name + "!") ;
 
     setTimeout(() => playSoundEffect(Attack.sound) , 1300);
 
@@ -92,7 +105,7 @@ const enemyAttack = (Attack) =>{
 const attackTour = () =>{
 
     playerAttack(Scratch);
-    if (Squirtle.health > 0) {
+    if (enemy.health > 0) {
             setTimeout(()=> enemyAttack(TailWhip), 3000);
     }
 }
