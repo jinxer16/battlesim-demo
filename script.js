@@ -1,5 +1,12 @@
 
-
+const checkItems = () =>{
+    let z = document.getElementById("items-content")
+  
+      for(let x of player.items){
+         z.appendChild(document.createTextNode(x.name))
+      }
+      return z;
+  }
 
 class Pokemon {
     constructor(name, health, level, sprite){
@@ -59,6 +66,52 @@ class Pokemon {
     }
 }
 
+class HealingItem{
+    constructor(name, value){
+        this.name = name;
+        this.value = value;
+    }
+        action() {
+            if(player.activePokemon.health === player.activePokemon.maxHealth){
+                gameMessage("YOUR HEALTH IS FULL!")
+                document.getElementById("items-menu").style="display: none;";
+                setTimeout(() => showMenu(), 3000)
+            }
+            else if(player.activePokemon.health + this.value >= player.activePokemon.maxHealth){
+                let a = player.activePokemon.maxHealth - player.activePokemon.health;
+                let b = player.items.indexOf(this)
+                let c = document.getElementById("items-content")
+                player.activePokemon.health = player.activePokemon.maxHealth;
+                
+                gameMessage("YOU ARE GETTING HEALED BY " + a + "HP")
+                document.getElementById("items-menu").style="display: none;";
+                c.remove();
+                player.items.splice(b, 1);
+                checkItems();
+                
+                setTimeout(() => printOnScreen(), 1500)
+                setTimeout(() => showMenu(), 3000)
+            }
+            else if(player.activePokemon.health + this.value < player.activePokemon.maxHealth){
+                player.activePokemon.health = player.activePokemon.maxHealth + this.value;
+                let b = player.items.indexOf(this)
+                let c = document.getElementById("items-content")
+
+                gameMessage("YOU ARE GETTING HEALED BY " + this.value + "HP")
+                document.getElementById("items-menu").style="display: none;";
+                c.remove();
+                player.items.splice(b, 1);
+                checkItems();
+
+
+                setTimeout(() => printOnScreen(), 1500)
+                setTimeout(() => showMenu(), 3000)
+            }
+
+        }
+    }
+
+    let berry = new HealingItem("BERRY", 5)
 
 
 let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
@@ -73,7 +126,7 @@ let Squirtle = new Pokemon("SQUIRTLE", 5 , 5, "images/squirtle-removebg-preview.
 let player = {
 
     activePokemon : Charmander,
-    items: []
+    items: [berry]
 
 }
 
@@ -116,6 +169,8 @@ const attackTour = () =>{
 
 
 const printOnScreen = () => {
+    
+    
     
     document.getElementById("player-name").innerText = Charmander.name;
     document.getElementById("player-hp-current").innerText = Charmander.health;
@@ -202,6 +257,9 @@ function start() {
     setTimeout(function() {
         showMenu();   
     }, 3600);
-    
-    printOnScreen();
+
+
+
+checkItems();
+printOnScreen();
 }

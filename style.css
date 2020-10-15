@@ -163,6 +163,7 @@ body {
     list-style-type: none;
     font-size: 20px;
     cursor: pointer;
+    
 }
 #items-cancel {
     position: absolute;
