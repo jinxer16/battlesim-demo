@@ -38,11 +38,10 @@ class Pokemon {
             } else {
                 this.health = 0;
                 if (player.activePokemon === this) {
-                    
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
-                    }, 3001)
+                    }, 3002)
                 } else {
                     setTimeout(function() {
                         playSoundEffect("sound/Victory.mp3");
