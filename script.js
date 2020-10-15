@@ -25,16 +25,17 @@ class Pokemon {
  }}
 
  class Attack{
-    constructor(name, power){
+    constructor(name, power, sound){
     this.name = name;
     this.power = power;
+    this.sound = sound;
     
     }
 }
 
-let TailWhip = new Attack("TAIL WHIP", 3);
+let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
 
-let Scratch = new Attack("SCRATCH", 4 );
+let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
 
 let Charmander = new Pokemon("CHARMANDER", 10 , 5);
 
@@ -50,6 +51,8 @@ const playerAttack = (Attack) =>{
     
     gameMessage(player.name +  " USED" + " " + Attack.name + "!") ;
 
+    setTimeout(() => playSoundEffect(Attack.sound) , 1300);
+
     setTimeout(() => printOnScreen(), 1500);
 
     
@@ -60,6 +63,8 @@ const enemyAttack = (Attack) =>{
     Charmander.changeHealth(Attack.power);
     
     gameMessage("SQUIRTLE USED" + " " + Attack.name + "!") ;
+
+    setTimeout(() => playSoundEffect(Attack.sound) , 1300);
 
     setTimeout(() => printOnScreen(), 1500);
 
@@ -114,6 +119,13 @@ function gameMessage(message) {
 }
 
 const soundtrack = new Audio("sound/soundtrack.mp3")
+
+const playSoundEffect = (dir) => {
+    
+    let audio = new Audio(dir);
+    audio.volume = 0.5
+    audio.play();
+}
 
 const showMenu = () =>{
     document.getElementById("game-menu").style = "display: flex;";
