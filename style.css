@@ -42,10 +42,10 @@ body {
     cursor: pointer;
     
 }
-.left-side {
+.right-side {
     height: 100%;
     width: 100px;
-    position: relative;
+    position: absolute;
     right: 0;
     z-index: 1000;
     background-color: white;
@@ -116,7 +116,9 @@ body {
 #enemy-sprite img, #player-sprite img{
     width: 200px;
 }
-
+#enemy-info {
+    visibility: hidden;
+}
 #bottom-area {
     border: 5px double black;
     height: 233px;
@@ -195,11 +197,11 @@ body {
 
 .battleStart {
     animation: slideIn .8s linear forwards,
-            darkToLight 1.2s steps(4) forwards;
+            darkToLight 1.2s steps(2) forwards;
 }
 @keyframes slideIn {
     from {
-        transform: translate(140px);
+        transform: translate(-450px);
     }
     to {
         transform: translate(0);

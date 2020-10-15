@@ -11,7 +11,7 @@ class Pokemon {
     }
     
         changeHealth(amount){
-            if (player === this) {
+            if (player.activePokemon === this) {
                 setTimeout(function() {
                     document.getElementById("player-sprite").classList="flicker";
                 }, 1200);
@@ -177,11 +177,14 @@ function start() {
     gameMessage("");
     setTimeout(function() {
         gameMessage("A wild SQUIRTLE appeared!");   
-    }, 1400)
-       
+        
+    }, 1300);
+    setTimeout(function() {
+        document.getElementById("enemy-info").style="visibility: visible;";
+    }, 3600);
     setTimeout(function() {
         showMenu();   
-    }, 3600)
+    }, 3600);
     
     printOnScreen();
 }
