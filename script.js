@@ -64,7 +64,7 @@ let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
 
 let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png");
 
-let Squirtle = new Pokemon("SQUIRTLE", 5 , 5, "images/squirtle.png");
+let Squirtle = new Pokemon("SQUIRTLE", 5 , 5, "images/squirtle-removebg-preview.png");
 
 
 let player = {
