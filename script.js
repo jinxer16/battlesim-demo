@@ -1,64 +1,87 @@
 class Pokemon {
-    constructor(name, health, level){
+    constructor(name, health, level, sprite){
         this.name = name;
         this.health = health;
         this.maxHealth = health;
-        this.level = level;}
+        this.level = level
+    }
     
         changeHealth(amount){
+            if (player === this) {
+                setTimeout(function() {
+                    document.getElementById("player-sprite").classList="flicker";
+                }, 1200);
+                setTimeout(function() {
+                    document.getElementById("player-sprite").classList="";
+                }, 1300);
+            } else {
+                setTimeout(function() {
+                    document.getElementById("enemy-sprite").classList="flicker";
+                }, 1200);
+                setTimeout(function() {
+                    document.getElementById("enemy-sprite").classList="";
+                }, 1300);
+            }
             if (this.health - amount > 0) {
                 this.health -= amount;
             } else {
                 this.health = 0;
                 if (player === this) {
-                    console.log("hi");
+                    
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
-                    }, 3005)
+                    }, 3001)
                 } else {
                     setTimeout(function() {
                         gameMessage("ENEMY FAINTED, YOU WON!");
                         document.getElementById("enemy-sprite").classList="faint";
-                    }, 3000)
+                    }, 3005)
                 }
         }
  }}
 
-let Charmander = new Pokemon("CHARMANDER", 5 , 5);
-
-
-let Squirtle = new Pokemon("SQUIRTLE", 10 , 5);
-
-let TailWhip = {
-    name : "TAIL WHIP",
-    power : 3,
+ class Attack{
+    constructor(name, power, sound){
+    this.name = name;
+    this.power = power;
+    this.sound = sound;
+    
+    }
 }
 
-let Scratch = {
-    name: "SCRATCH",
-    power: 4
-}
+let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
+
+let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
+
+let Charmander = new Pokemon("CHARMANDER", 10 , 5);
+
+let Squirtle = new Pokemon("SQUIRTLE", 20 , 5);
 
 let player = Charmander;
+
 let enemy = Squirtle;
 
-const playerAttack = (attack) =>{
+const playerAttack = (Attack) =>{
     
-    Squirtle.changeHealth(attack.power);
+    Squirtle.changeHealth(Attack.power);
     
-    gameMessage(player.name +  " USED" + " " + attack.name + "!") ;
+    gameMessage(player.name +  " USED" + " " + Attack.name + "!") ;
+
+    setTimeout(() => playSoundEffect(Attack.sound) , 1300);
 
     setTimeout(() => printOnScreen(), 1500);
 
     
 }
 
-const enemyAttack = (attack) =>{
+const enemyAttack = (Attack) =>{
     
-    Charmander.changeHealth(attack.power);
+    Charmander.changeHealth(Attack.power);
     
-    gameMessage("SQUIRTLE USED" + " " + attack.name + "!") ;
+    gameMessage("SQUIRTLE USED" + " " + Attack.name + "!") ;
+
+    setTimeout(() => playSoundEffect(Attack.sound) , 1300);
 
     setTimeout(() => printOnScreen(), 1500);
 
@@ -92,9 +115,33 @@ const printOnScreen = () => {
 }
 
 function gameMessage(message) {
+    let messageArray = message.split("");
+    let arr = [];
     document.getElementById("game-menu").style = "display: none;";
     document.getElementById("message").style = "display: block;";
-    document.getElementById("message").innerHTML = message;   
+    document.getElementById("message").innerHTML = "";
+    let temp = "";
+    function letterByLetter(array) {
+        if (arr.length != message.length) {
+            temp = array.shift();
+            arr.push(temp);
+            window.setTimeout(function() {
+                document.getElementById("message").innerHTML = arr.join("");
+                letterByLetter(messageArray);
+            }, 40)
+        }
+    }
+    letterByLetter(messageArray);
+     
+}
+
+const soundtrack = new Audio("sound/soundtrack.mp3")
+
+const playSoundEffect = (dir) => {
+    
+    let audio = new Audio(dir);
+    audio.volume = 0.5
+    audio.play();
 }
 
 const showMenu = () =>{
@@ -102,5 +149,15 @@ const showMenu = () =>{
     document.getElementById("message").style = "display: none;";
 }
 
+const runningAway = () => {
+    gameMessage("YOU CAN'T RUN AWAY RIGHT NOW!");
+    setTimeout(() => showMenu() , 3000)
+}
+
+function start() {
+    document.getElementById("overlay").style="display: none;";
+    soundtrack.volume = 0.05;
+    soundtrack.play();
+}
     
 printOnScreen();

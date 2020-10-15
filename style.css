@@ -24,6 +24,25 @@ body {
     justify-content: center;
 
 }
+#overlay {
+    min-width: 600px;
+    max-width: 600px;
+    height: 600px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    z-index: 100;
+    border: 1px solid #CCC;
+}
+#start-button {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    
+}
 #message {
     font-size: 25px;
     padding: 20px 30px;
@@ -110,6 +129,7 @@ body {
     height: 160px;
     justify-content: space-around;
     padding-left: 30px;
+    cursor: pointer;
 }
 #game-menu div {
     display: flex;
@@ -127,7 +147,7 @@ body {
     left: -20px;
     top: -4px;
 }
-#fightbutton{ cursor: pointer; }
+
 
 .faint {
     position: relative;
@@ -151,6 +171,18 @@ body {
     }
     100% {
         transform: translate(0,130px);
+    }
+}
+
+.flicker {
+    animation: flicker .2s steps(2) forwards;
+}
+@keyframes flicker {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
     }
 }
 

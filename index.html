@@ -8,54 +8,58 @@
     <title></title>
 </head>
 <body>
-
-    <div class="game-area">
-        <div id="enemy-player-div">
-            <div class="character-area">
-                <div class="character-info">
-                    <p id="enemy-name"></p>
-                    <p id="enemy-level"></p>
-                    <!-- <div class="hp-div">
-                        <div id="enemy-hp-bar" class="clearfix"></div>
-                    </div> -->
-                    <p id="enemy-hp"><span id="enemy-hp-current"></span>&#47;<span id="enemy-hp-max"></span></p>    
-                    
-                </div>
-                <div id="enemy-sprite">
-                    <img src="images/squirtle.png">
-                </div>
-            </div>
     
-            <div class="character-area">
-                <div id="player-sprite">
-                    <img src="images/charmander.png">
+    <div class="game-area">
+        <div id="overlay"><p id="start-button" onclick="start()">START</p></div>
+            
+            <div id="enemy-player-div">
+                <div class="character-area">
+                    <div class="character-info">
+                        <p id="enemy-name"></p>
+                        <p id="enemy-level"></p>
+                        <!-- <div class="hp-div">
+                            <div id="enemy-hp-bar" class="clearfix"></div>
+                        </div> -->
+                        <p id="enemy-hp"><span id="enemy-hp-current"></span>&#47;<span id="enemy-hp-max"></span></p>    
+                        
+                    </div>
+                    <div id="enemy-sprite">
+                        <img src="images/squirtle.png">
+                    </div>
                 </div>
-                <div class="character-info">
-                    <p id="player-name"></p>
-                    <p id="player-level"></p>
-                    <!-- <div class="hp-div">
-                        <div id="player-hp-bar" class="clearfix"></div>
-                    </div> -->
-                    <p id="player-hp"><span id="player-hp-current"></span>&#47;<span id="player-hp-max"></span></p>
-                   
+        
+                <div class="character-area">
+                    <div id="player-sprite">
+                        <img src="images/charmander.png">
+                    </div>
+                    <div class="character-info">
+                        <p id="player-name"></p>
+                        <p id="player-level"></p>
+                        <!-- <div class="hp-div">
+                            <div id="player-hp-bar" class="clearfix"></div>
+                        </div> -->
+                        <p id="player-hp"><span id="player-hp-current"></span>&#47;<span id="player-hp-max"></span></p>
+                    
+                    </div>
                 </div>
             </div>
-        </div>
+        
         
 
-        <div id="bottom-area">
-            <p id="message"> </p>
-            <div id="game-menu">
-                <div id="menu-div1">
-                    <li id="fightbutton" onclick = attackTour()>FIGHT</li>
-                    <li>ITEM</li>
-                </div>
-                <div id="menu-div2">
-                    <li>PKMN</li>
-                    <li>RUN</li>
+            <div id="bottom-area">
+                <p id="message"> </p>
+                <div id="game-menu">
+                    <div id="menu-div1">
+                        <li id="fightbutton" onclick = attackTour()>FIGHT</li>
+                        <li>ITEM</li>
+                    </div>
+                    <div id="menu-div2">
+                        <li>PKMN</li>
+                        <li onclick = runningAway()>RUN</li>
+                    </div>
                 </div>
             </div>
-        </div>
+        
     </div>
 
     <script src="script.js"></script>
