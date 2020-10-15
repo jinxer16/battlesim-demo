@@ -38,10 +38,13 @@ class Pokemon {
                     }, 3001)
                 } else {
                     setTimeout(function() {
+                        pauseSoundtrack();
+                        playSoundEffect("sound/Victory.mp3");
                         gameMessage("ENEMY FAINTED, YOU WON!");
                         document.getElementById("enemy-sprite").classList="faint";
                     }, 3005)
                 }
+
         }
  }}
 
@@ -157,6 +160,11 @@ const playSoundEffect = (dir) => {
     audio.volume = 0.1
     audio.play();
 }
+
+const pauseSoundtrack = () =>{
+    soundtrack.pause() === true;
+}
+
 
 const showMenu = () =>{
     document.getElementById("game-menu").style = "display: flex;";
