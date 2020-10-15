@@ -95,7 +95,7 @@ class HealingItem{
                 setTimeout(() => showMenu(), 3000)
             }
             else if(player.activePokemon.health + this.value < player.activePokemon.maxHealth){
-                player.activePokemon.health = player.activePokemon.maxHealth + this.value;
+                player.activePokemon.health = player.activePokemon.health + this.value;
                 let b = player.items.indexOf(this)
                 let c = document.getElementById("items-content")
 
@@ -122,7 +122,7 @@ let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
 
 let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png");
 
-let Squirtle = new Pokemon("SQUIRTLE", 5 , 5, "images/squirtle-removebg-preview.png");
+let Squirtle = new Pokemon("SQUIRTLE", 30 , 5, "images/squirtle-removebg-preview.png");
 
 
 let player = {
