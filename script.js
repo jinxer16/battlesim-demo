@@ -7,6 +7,7 @@ class Pokemon {
         this.health = health;
         this.maxHealth = health;
         this.level = level
+        this.sprite = sprite
     }
     
         changeHealth(amount){
@@ -61,9 +62,9 @@ let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
 
 let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
 
-let Charmander = new Pokemon("CHARMANDER", 10 , 5);
+let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png");
 
-let Squirtle = new Pokemon("SQUIRTLE", 5 , 5);
+let Squirtle = new Pokemon("SQUIRTLE", 5 , 5, "images/squirtle.png");
 
 
 let player = {
@@ -117,14 +118,14 @@ const printOnScreen = () => {
     document.getElementById("player-hp-current").innerText = Charmander.health;
     document.getElementById("player-hp-max").innerText = Charmander.maxHealth;
     document.getElementById("player-level").innerText = Charmander.level;
-   // document.getElementById("player-sprite").setAttribute = Charmander.sprite;//
+    document.getElementById("player-sprite-id").src = player.activePokemon.sprite;
     
 
     document.getElementById("enemy-name").innerText = Squirtle.name;
     document.getElementById("enemy-hp-current").innerText = Squirtle.health;
     document.getElementById("enemy-hp-max").innerText = Squirtle.maxHealth;
     document.getElementById("enemy-level").innerText = Squirtle.level;
-
+    document.getElementById("enemy-sprite-id").src = enemy.sprite;
 }
 
 function gameMessage(message) {
@@ -153,7 +154,7 @@ const soundtrack = new Audio("sound/soundtrack.mp3")
 const playSoundEffect = (dir) => {
     
     let audio = new Audio(dir);
-    audio.volume = 0.5
+    audio.volume = 0.1
     audio.play();
 }
 
