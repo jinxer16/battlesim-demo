@@ -111,6 +111,8 @@ function gameMessage(message) {
      
 }
 
+const soundtrack = new Audio("sound/soundtrack.mp3")
+
 const showMenu = () =>{
     document.getElementById("game-menu").style = "display: flex;";
     document.getElementById("message").style = "display: none;";
@@ -123,6 +125,8 @@ const runningAway = () => {
 
 function start() {
     document.getElementById("overlay").style="display: none;";
+    soundtrack.volume = 0.05;
+    soundtrack.play();
 }
     
 printOnScreen();
