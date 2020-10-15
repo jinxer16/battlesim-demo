@@ -176,7 +176,7 @@ body {
 
 .faint {
     position: relative;
-    animation: faint .5s linear forwards;
+    animation: faint .3s linear forwards;
 }
 @keyframes faint {
     0% {
@@ -212,7 +212,7 @@ body {
 }
 
 .battleStart {
-    animation: slideIn .8s linear forwards,
+    animation: slideIn 1s linear forwards,
             darkToLight 1.2s steps(2) forwards;
 }
 @keyframes slideIn {
@@ -234,7 +234,6 @@ body {
         filter: brightness(100%);
     }
 }
-
 .clearfix::after {
     content: "";
     clear: both;

@@ -45,8 +45,10 @@ class Pokemon {
                     }, 3001)
                 } else {
                     setTimeout(function() {
-                        pauseSoundtrack();
                         playSoundEffect("sound/Victory.mp3");
+                    }, 1700)
+                    setTimeout(function() {
+                        pauseSoundtrack();
                         gameMessage("ENEMY FAINTED, YOU WON!");
                         document.getElementById("enemy-sprite").classList="faint";
                     }, 3005)
