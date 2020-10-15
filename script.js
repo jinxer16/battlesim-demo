@@ -1,16 +1,33 @@
 class Pokemon {
-    constructor(name, health, level){
+    constructor(name, health, level, sprite){
         this.name = name;
         this.health = health;
         this.maxHealth = health;
-        this.level = level;}
+        this.level = level
+    }
     
         changeHealth(amount){
+            if (player === this) {
+                setTimeout(function() {
+                    document.getElementById("player-sprite").classList="flicker";
+                }, 1200);
+                setTimeout(function() {
+                    document.getElementById("player-sprite").classList="";
+                }, 1300);
+            } else {
+                setTimeout(function() {
+                    document.getElementById("enemy-sprite").classList="flicker";
+                }, 1200);
+                setTimeout(function() {
+                    document.getElementById("enemy-sprite").classList="";
+                }, 1300);
+            }
             if (this.health - amount > 0) {
                 this.health -= amount;
             } else {
                 this.health = 0;
                 if (player === this) {
+                    
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
