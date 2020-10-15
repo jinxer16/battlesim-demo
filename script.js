@@ -11,7 +11,6 @@ class Pokemon {
             } else {
                 this.health = 0;
                 if (player === this) {
-                    console.log("hi");
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
                         gameMessage("YOU WHITED OUT!");
@@ -122,5 +121,8 @@ const runningAway = () => {
     setTimeout(() => showMenu() , 3000)
 }
 
+function start() {
+    document.getElementById("overlay").style="display: none;";
+}
     
 printOnScreen();
