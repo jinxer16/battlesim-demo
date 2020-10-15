@@ -37,7 +37,7 @@ class Pokemon {
                 this.health -= amount;
             } else {
                 this.health = 0;
-                if (player === this) {
+                if (player.activePokemon === this) {
                     
                     setTimeout(function() {
                         document.getElementById("player-sprite").classList="playerfaint";
