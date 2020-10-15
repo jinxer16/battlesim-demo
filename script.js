@@ -168,6 +168,15 @@ const runningAway = () => {
     setTimeout(() => showMenu() , 3000)
 }
 
+function items() {
+    gameMessage("");
+    document.getElementById("items-menu").style="display: block;";
+}
+function closeItems() {
+    showMenu();
+    document.getElementById("items-menu").style="display: none;";
+}
+
 function start() {
     document.getElementById("overlay").style="display: none;";
     soundtrack.volume = 0.05;

@@ -42,15 +42,6 @@ body {
     cursor: pointer;
     
 }
-.right-side {
-    height: 100%;
-    width: 100px;
-    position: absolute;
-    right: 0;
-    z-index: 1000;
-    background-color: white;
-
-}
 #message {
     font-size: 25px;
     padding: 20px 30px;
@@ -156,7 +147,31 @@ body {
     left: -20px;
     top: -4px;
 }
-
+#items-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: -190px;
+    height: 200px;
+    width: 400px;
+    background-color: white;
+    z-index: 100;
+    border: 5px double black;
+    padding: 10px;
+}
+#items-menu li {
+    list-style-type: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+#items-cancel {
+    position: absolute;
+    bottom: -40px;
+    right: 0;  
+    background-color: white;
+    border: 5px double black;
+    padding: 10px;
+}
 
 .faint {
     position: relative;

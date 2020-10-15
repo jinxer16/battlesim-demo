@@ -8,10 +8,8 @@
     <title></title>
 </head>
 <body>
-    <div class="right-side clearfix"></div>
     <div class="game-area">
         <div id="overlay"><p id="start-button" onclick="start()">START</p></div>
-            
             <div id="enemy-player-div">
                 <div class="character-area">
                     <div class="character-info" id="enemy-info">
@@ -45,13 +43,15 @@
             </div>
         
         
-
             <div id="bottom-area">
+                <div id="items-menu">
+                    <li id="items-cancel" onclick = closeItems()>CANCEL</li>
+                </div>
                 <p id="message"> </p>
                 <div id="game-menu">
                     <div id="menu-div1">
                         <li id="fightbutton" onclick = attackTour()>FIGHT</li>
-                        <li>ITEM</li>
+                        <li id="itembutton" onclick = items()>ITEM</li>
                     </div>
                     <div id="menu-div2">
                         <li>PKMN</li>
