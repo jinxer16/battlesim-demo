@@ -24,40 +24,42 @@ class Pokemon {
         }
  }}
 
-let Charmander = new Pokemon("CHARMANDER", 10 , 5);
+ class Attack{
+    constructor(name, power){
+    this.name = name;
+    this.power = power;
+    
+    }
+}
 
+let TailWhip = new Attack("TAIL WHIP", 3);
+
+let Scratch = new Attack("SCRATCH", 4 );
+
+let Charmander = new Pokemon("CHARMANDER", 10 , 5);
 
 let Squirtle = new Pokemon("SQUIRTLE", 20 , 5);
 
-let TailWhip = {
-    name : "TAIL WHIP",
-    power : 3,
-}
-
-let Scratch = {
-    name: "SCRATCH",
-    power: 4
-}
-
 let player = Charmander;
+
 let enemy = Squirtle;
 
-const playerAttack = (attack) =>{
+const playerAttack = (Attack) =>{
     
-    Squirtle.changeHealth(attack.power);
+    Squirtle.changeHealth(Attack.power);
     
-    gameMessage(player.name +  " USED" + " " + attack.name + "!") ;
+    gameMessage(player.name +  " USED" + " " + Attack.name + "!") ;
 
     setTimeout(() => printOnScreen(), 1500);
 
     
 }
 
-const enemyAttack = (attack) =>{
+const enemyAttack = (Attack) =>{
     
-    Charmander.changeHealth(attack.power);
+    Charmander.changeHealth(Attack.power);
     
-    gameMessage("SQUIRTLE USED" + " " + attack.name + "!") ;
+    gameMessage("SQUIRTLE USED" + " " + Attack.name + "!") ;
 
     setTimeout(() => printOnScreen(), 1500);
 
