@@ -35,13 +35,21 @@ body {
     align-items: center;
     position:absolute;
     z-index: 100;
-    border: 1px solid #CCC;
 }
 #start-button {
     border: 1px solid black;
     padding: 10px;
     cursor: pointer;
     
+}
+.left-side {
+    height: 100%;
+    width: 100px;
+    position: relative;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+
 }
 #message {
     font-size: 25px;
@@ -94,7 +102,6 @@ body {
     min-width: 600px;
     max-width: 600px;
     height: 600px;
-    border: 1px solid #CCC;
 
     display: flex;
     flex-direction: column;
@@ -183,6 +190,30 @@ body {
     }
     to {
         opacity: 100%;
+    }
+}
+
+.battleStart {
+    animation: slideIn .8s linear forwards,
+            darkToLight 1.2s steps(4) forwards;
+}
+@keyframes slideIn {
+    from {
+        transform: translate(140px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+@keyframes darkToLight {
+    0% {
+        filter: brightness(0);
+    }
+    70% {
+        filter: brightness(1%);
+    }
+    100% {
+        filter: brightness(100%);
     }
 }
 

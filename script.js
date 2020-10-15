@@ -171,6 +171,16 @@ function start() {
     document.getElementById("overlay").style="display: none;";
     soundtrack.volume = 0.05;
     soundtrack.play();
-}
+
+    document.getElementById("enemy-sprite").classList="battleStart";
+    gameMessage("");
+    setTimeout(function() {
+        gameMessage("A wild SQUIRTLE appeared!");   
+    }, 1400)
+       
+    setTimeout(function() {
+        showMenu();   
+    }, 3600)
     
-printOnScreen();
+    printOnScreen();
+}
