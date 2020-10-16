@@ -231,7 +231,14 @@ const runningAway = () => {
     gameMessage("YOU CAN'T RUN AWAY RIGHT NOW!");
     setTimeout(() => showMenu() , 3000)
 }
-
+function fight() {
+    gameMessage("");
+    document.getElementById("fight-menu").style="display: block;";
+}
+function closeFight() {
+    showMenu();
+    document.getElementById("fight-menu").style="display: none;";
+}
 function items() {
     gameMessage("");
     document.getElementById("items-menu").style="display: block;";

@@ -44,14 +44,18 @@
         
         
             <div id="bottom-area">
-                <div id="items-menu">
+                <div id="items-menu" class="sub-menu">
                     <li id="items-content" onclick= berry.action()></li>
                     <li id="items-cancel" onclick = closeItems()>CANCEL</li>
+                </div>
+                <div id="fight-menu" class="sub-menu">
+                    <li id="fight-content" onclick= >SCRATCH</li>
+                    <li id="fight-cancel" onclick = closeFight()>CANCEL</li>
                 </div>
                 <p id="message"> </p>
                 <div id="game-menu">
                     <div id="menu-div1">
-                        <li id="fightbutton" onclick = attackTour()>FIGHT</li>
+                        <li id="fightbutton" onclick = fight()>FIGHT</li>
                         <li id="itembutton" onclick = items()>ITEM</li>
                     </div>
                     <div id="menu-div2">
