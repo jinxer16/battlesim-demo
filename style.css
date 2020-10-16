@@ -164,7 +164,7 @@ body {
 .sub-menu li {
     list-style-type: none;
     font-size: 20px;
-    cursor: pointer;  
+    cursor: pointer;
 }
 .sub-menu li:hover:before {
     content: url('images/right-arrow-black-triangle.png');
@@ -173,11 +173,12 @@ body {
 }
 #fight-menu {
     position: absolute;
-    right: -4px;
-    top:-36px;
-    height: 200px;
-    width: 400px;
+    right: -5px;
+    top:-5px;
+    height: 170px;
+    width: 500px;
     padding: 20px;
+    
 }
 #items-cancel {
     position: absolute;
