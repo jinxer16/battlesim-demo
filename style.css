@@ -35,7 +35,6 @@ body {
     align-items: center;
     position:absolute;
     z-index: 100;
-    border: 1px solid #CCC;
 }
 #start-button {
     border: 1px solid black;
@@ -94,7 +93,6 @@ body {
     min-width: 600px;
     max-width: 600px;
     height: 600px;
-    border: 1px solid #CCC;
 
     display: flex;
     flex-direction: column;
@@ -109,7 +107,9 @@ body {
 #enemy-sprite img, #player-sprite img{
     width: 200px;
 }
-
+#enemy-info {
+    visibility: hidden;
+}
 #bottom-area {
     border: 5px double black;
     height: 233px;
@@ -147,11 +147,51 @@ body {
     left: -20px;
     top: -4px;
 }
-
+#items-menu {
+    position: absolute;
+    padding: 20px;
+    right: 10px;
+    top: -190px;
+    height: 200px;
+    width: 400px;
+}
+.sub-menu {
+    display: none;
+    background-color: white;
+    z-index: 100;
+    border: 5px double black;
+}
+.sub-menu li {
+    list-style-type: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sub-menu li:hover:before {
+    content: url('images/right-arrow-black-triangle.png');
+    position: absolute;
+    left: 2px;
+}
+#fight-menu {
+    position: absolute;
+    right: -5px;
+    top:-5px;
+    height: 170px;
+    width: 500px;
+    padding: 20px;
+    
+}
+#items-cancel {
+    position: absolute;
+    bottom: -40px;
+    right: 0;  
+    background-color: white;
+    border: 5px double black;
+    padding: 10px 10px 10px 20px;
+}
 
 .faint {
     position: relative;
-    animation: faint .5s linear forwards;
+    animation: faint .3s linear forwards;
 }
 @keyframes faint {
     0% {
@@ -186,6 +226,29 @@ body {
     }
 }
 
+.battleStart {
+    animation: slideIn 1s linear forwards,
+            darkToLight 1.2s steps(2) forwards;
+}
+@keyframes slideIn {
+    from {
+        transform: translate(-450px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+@keyframes darkToLight {
+    0% {
+        filter: brightness(0);
+    }
+    70% {
+        filter: brightness(1%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
+}
 .clearfix::after {
     content: "";
     clear: both;
