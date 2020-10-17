@@ -10,18 +10,17 @@ const checkItems = () =>{
 
   function attackInitialize(){
     let lol =  document.getElementById("fight-menu");
-    let a = player.activePokemon.attacks
-      for(x in player.activePokemon.attacks){
+      for(x of player.activePokemon.attacks){
         let attackElement = document.createElement('li');
-        attackElement.innerText = a[x].name;
-        attackElement.id = a[x].id     
+        attackElement.innerText = x.name;
+        attackElement.id = x.id;
+        
+        attackElement.addEventListener('click' ,()=> attackTour(x)); 
         lol.appendChild(attackElement);
-        function lolol(){
-            return attackTour(x);
-        }
-        attackElement.addEventListener('click' , lolol());
+        
         
       }
+      
       
      }
   
