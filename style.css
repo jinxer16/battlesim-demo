@@ -169,7 +169,7 @@ body {
 .sub-menu li:hover:before {
     content: url('images/right-arrow-black-triangle.png');
     position: absolute;
-    left: 2px;
+    
 }
 #fight-menu {
     position: absolute;
@@ -179,6 +179,14 @@ body {
     width: 500px;
     padding: 20px;
     
+}
+#fight-cancel {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#fight-cancel:hover:before {
+    left: -20px;
 }
 #items-cancel {
     position: absolute;
