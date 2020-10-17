@@ -8,13 +8,32 @@ const checkItems = () =>{
       return z;
   }
 
+  function attackInitialize(){
+    let lol =  document.getElementById("fight-menu");
+    let a = player.activePokemon.attacks
+      for(x in player.activePokemon.attacks){
+        let attackElement = document.createElement('li');
+        attackElement.innerText = a[x].name;
+        attackElement.id = a[x].id     
+        lol.appendChild(attackElement);
+        function lolol(){
+            return attackTour(x);
+        }
+        attackElement.addEventListener('click' , lolol());
+        
+      }
+      
+     }
+  
+
 class Pokemon {
-    constructor(name, health, level, sprite){
+    constructor(name, health, level, sprite, attacks){
         this.name = name;
         this.health = health;
         this.maxHealth = health;
-        this.level = level
-        this.sprite = sprite
+        this.level = level;
+        this.sprite = sprite;
+        this.attacks = attacks;
     }
     
         changeHealth(amount){
@@ -59,10 +78,11 @@ class Pokemon {
 
 
  class Attack{
-    constructor(name, power, sound){
+    constructor(name, power, sound, id){
     this.name = name;
     this.power = power;
     this.sound = sound;
+    this.id = id;
     
     }
 }
@@ -115,13 +135,13 @@ class HealingItem{
     let berry = new HealingItem("BERRY", 5)
 
 
-let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3");
+let TailWhip = new Attack("TAIL WHIP", 3 , "sound/Tackle.mp3", "tail-whip");
 
-let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3");
+let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3", "scratch");
 
-let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png");
+let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png", [TailWhip, Scratch]);
 
-let Squirtle = new Pokemon("SQUIRTLE", 30 , 5, "images/squirtle-removebg-preview.png");
+let Squirtle = new Pokemon("SQUIRTLE", 30 , 5, "images/squirtle-removebg-preview.png", []);
 
 
 let player = {
@@ -160,9 +180,10 @@ const enemyAttack = (Attack) =>{
 }
 
 
-const attackTour = () =>{
+const attackTour = (a) =>{
 
-    playerAttack(Scratch);
+    playerAttack(a);
+    document.getElementById("fight-menu").style="display: none;";
     if (enemy.health > 0) {
             setTimeout(()=> enemyAttack(TailWhip), 3000);
     }
@@ -232,6 +253,7 @@ const runningAway = () => {
     setTimeout(() => showMenu() , 3000)
 }
 function fight() {
+    
     gameMessage("");
     document.getElementById("fight-menu").style="display: block;";
 }
@@ -266,8 +288,12 @@ function start() {
         showMenu();   
     }, 3600);
 
+    
+    
+
 
 
 checkItems();
 printOnScreen();
+attackInitialize();
 }
