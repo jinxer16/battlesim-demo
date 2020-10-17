@@ -14,15 +14,13 @@ const checkItems = () =>{
         let attackElement = document.createElement('li');
         attackElement.innerText = x.name;
         attackElement.id = x.id;
-        
-        attackElement.addEventListener('click' ,()=> attackTour(x)); 
         lol.appendChild(attackElement);
-        
-        
       }
+      player.activePokemon.attacks.forEach(function(attack) {
+        document.getElementById(attack.id).addEventListener('click', function() { attackTour(attack) });
+    });
       
-      
-     }
+    }
   
 
 class Pokemon {
