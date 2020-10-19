@@ -52,6 +52,9 @@
                     <li id="fight-content" ></li>
                     <li id="fight-cancel" onclick = closeFight()>CANCEL</li>
                 </div>
+                <div id="pkmn-menu" class="sub-menu">
+                    <li id="pkmn-cancel" onclick = closePkmn()>CANCEL</li>
+                </div>
                 <p id="message"> </p>
                 <div id="game-menu">
                     <div id="menu-div1">
@@ -59,13 +62,14 @@
                         <li id="itembutton" onclick = items()>ITEM</li>
                     </div>
                     <div id="menu-div2">
-                        <li>PKMN</li>
+                        <li id="pkmnbutton" onclick = pkmn()>PKMN</li>
                         <li onclick = runningAway()>RUN</li>
                     </div>
                 </div>
             </div>
         
     </div>
+
     
 
     <script src="script.js"></script>
