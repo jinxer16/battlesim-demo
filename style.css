@@ -169,7 +169,7 @@ body {
 .sub-menu li:hover:before {
     content: url('images/right-arrow-black-triangle.png');
     position: absolute;
-    left: 2px;
+    left: 3px;
 }
 #fight-menu {
     position: absolute;
@@ -177,9 +177,41 @@ body {
     top:-5px;
     height: 170px;
     width: 500px;
-    padding: 20px;
-    
+    padding: 5px 20px;
 }
+#fight-menu li {
+    margin-bottom: 11px;
+}
+#fight-cancel {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+#fight-cancel:hover:before {
+    left: -20px;
+}
+
+#pkmn-menu {
+    position: absolute;
+    right: -5px;
+    top:-5px;
+    height: 170px;
+    width: 500px;
+    padding: 5px 20px;
+}
+#pkmn-menu li {
+    margin-bottom: 11px;
+}
+#pkmn-cancel {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+#pkmn-cancel:hover:before {
+    left: -20px;
+}
+
 #items-cancel {
     position: absolute;
     bottom: -40px;
@@ -188,6 +220,8 @@ body {
     border: 5px double black;
     padding: 10px 10px 10px 20px;
 }
+
+
 
 .faint {
     position: relative;

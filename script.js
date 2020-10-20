@@ -20,6 +20,16 @@ const checkItems = () =>{
       
       
     }
+
+    function pkmnInitialize(){
+        let lol = document.getElementById("pkmn-menu");
+        for(let x of player.pokemons){
+            let Pokemon = document.createElement("li");
+            Pokemon.innerText = x.name;
+            lol.appendChild(Pokemon);
+            Pokemon.addEventListener('click', function() {pokemonChange(x)});
+        }
+    }
   
 
 class Pokemon {
@@ -137,13 +147,16 @@ let Scratch = new Attack("SCRATCH", 4 , "sound/Scratch.mp3", "scratch");
 
 let Charmander = new Pokemon("CHARMANDER", 10 , 5 , "images/charmander.png", [TailWhip, Scratch]);
 
-let Squirtle = new Pokemon("SQUIRTLE", 30 , 5, "images/squirtle-removebg-preview.png", []);
+let Squirtle = new Pokemon("SQUIRTLE", 30 , 5, "images/squirtle-removebg-preview.png", [TailWhip, Scratch]);
+
+let Bulbasaur = new Pokemon("BULBASAUR", 40, 5, "images/bulbasaur.png", [TailWhip, Scratch]);
 
 
 let player = {
 
     activePokemon : Charmander,
-    items: [berry]
+    items: [berry],
+    pokemons: [Charmander, Bulbasaur]
 
 }
 
@@ -164,7 +177,7 @@ const playerAttack = (Attack) =>{
 
 const enemyAttack = (Attack) =>{
     
-    Charmander.changeHealth(Attack.power);
+    player.activePokemon.changeHealth(Attack.power);
     
     gameMessage("SQUIRTLE USED" + " " + Attack.name + "!") ;
 
@@ -185,15 +198,30 @@ const attackTour = (a) =>{
     }
 }
 
+function pokemonChange(pokemonToChange){
+    if(player.activePokemon === pokemonToChange){
+        closePkmn();
+        gameMessage("You are already using " + pokemonToChange.name + " !")
+        setTimeout(() => showMenu(), 3000)
+    }
+     else{
+         player.activePokemon = pokemonToChange;
+         closePkmn();
+         gameMessage("You are choosing " + pokemonToChange.name + " !");
+         setTimeout(() => printOnScreen(), 1500)
+         setTimeout(() => showMenu(), 3000)
+     }
+    }
+
 
 const printOnScreen = () => {
     
     
     
-    document.getElementById("player-name").innerText = Charmander.name;
-    document.getElementById("player-hp-current").innerText = Charmander.health;
-    document.getElementById("player-hp-max").innerText = Charmander.maxHealth;
-    document.getElementById("player-level").innerText = Charmander.level;
+    document.getElementById("player-name").innerText = player.activePokemon.name;
+    document.getElementById("player-hp-current").innerText = player.activePokemon.health;
+    document.getElementById("player-hp-max").innerText = player.activePokemon.maxHealth;
+    document.getElementById("player-level").innerText = player.activePokemon.level;
     document.getElementById("player-sprite-id").src = player.activePokemon.sprite;
     
 
@@ -257,6 +285,17 @@ function closeFight() {
     showMenu();
     document.getElementById("fight-menu").style="display: none;";
 }
+
+function pkmn() {
+    
+    gameMessage("");
+    document.getElementById("pkmn-menu").style="display: block;";
+}
+function closePkmn() {
+    showMenu();
+    document.getElementById("pkmn-menu").style="display: none;";
+}
+
 function items() {
     gameMessage("");
     document.getElementById("items-menu").style="display: block;";
@@ -292,4 +331,5 @@ function start() {
 checkItems();
 printOnScreen();
 attackInitialize();
+pkmnInitialize();
 }
